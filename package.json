@@ -18,13 +18,16 @@
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
+    "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.4",
-    "sass": "^1.23.0"
+    "sass": "^1.23.0",
+    "stripe": "^7.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "scss": "node-sass --watch scss -o css",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
