@@ -1,0 +1,285 @@
+$normal: #a8a77a;
+$fire: #ee8130;
+$water: #6390f0;
+$electric: #f7d02c;
+$grass: #7ac74c;
+$ice: #96d9d6;
+$fighting: #c22e28;
+$poison: #a33ea1;
+$ground: #e2bf65;
+$flying: #a98ff3;
+$psychic: #f95587;
+$bug: #a6b91a;
+$rock: #b6a136;
+$ghost: #735797;
+$dragon: #6f35fc;
+$dark: #705746;
+$steel: #b7b7ce;
+$fairy: #d685ad;
+
+@mixin inputs($height, $width, $font-size) {
+  height: $height;
+  width: $width;
+  font-size: $font-size;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  transition: 500ms;
+  border: rgba(0, 0, 0, 0.178) solid 1px;
+}
+@mixin input-focus($shadow-color) {
+  box-shadow: 0px 0px 10px $shadow-color;
+  transition: 500ms;
+}
+
+.name-input {
+  transition: 500ms;
+  @include inputs(40px, 170px, 17px);
+}
+
+.name-input:focus {
+  @include input-focus($dark);
+}
+
+@mixin buttons($button-color) {
+  background: $button-color;
+  height: 40px;
+  width: 70px;
+  color: whitesmoke;
+  border: none;
+  border-radius: 25px;
+  font-size: 17px;
+  margin: 0.5rem;
+  transition: 500ms;
+  border: rgba(0, 0, 0, 0.178) solid 1px;
+}
+
+@mixin buttons-hover($shadow-color) {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px $shadow-color;
+  transition: 0ms;
+  border: rgba(0, 0, 0, 0.28) solid 5px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  > .confirm-favorite {
+    > .confirm-button {
+      @include buttons($water);
+    }
+    > .confirm-button:hover {
+      @include buttons-hover($water);
+    }
+    > .favorite-button {
+      @include buttons($grass);
+    }
+    > .favorite-button:hover {
+      @include buttons-hover($grass);
+    }
+  }
+  > .release-cancel {
+    > .release-button {
+      @include buttons($dark);
+    }
+    > .release-button:hover {
+      @include buttons-hover($dark);
+    }
+    > .cancel-button {
+      @include buttons($fighting);
+    }
+    > .cancel-button:hover {
+      @include buttons-hover($fighting);
+    }
+  }
+}
+
+.my-pokemon {
+  // height: 168px;
+  > .content {
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    > .edit-container {
+      position: relative;
+      @keyframes mymove {
+        0% {
+          top: -100px;
+          z-index: -1;
+          // display:hidden !important;
+        }
+        100% {
+          top: 0px;
+          display: inline-block;
+        }
+      }
+      animation: mymove 0.6s;
+      > .update-name {
+        text-align: center;
+      }
+    }
+    > .pokemon-image {
+      width: 128px;
+      height: 128px;
+      min-height: 128px;
+      min-width: 128px;
+      border-radius: 25px;
+      margin: 10px;
+      border: black solid 1px;
+      margin-left: 22px;
+      margin-right: 22px;
+    }
+    > .pokemon-image:hover {
+      cursor: pointer;
+    }
+    > .steel {
+      background: $steel;
+      transition: 400ms;
+    }
+    > .dark {
+      background: $dark;
+      transition: 400ms;
+    }
+    > .ghost {
+      background: $ghost;
+      transition: 400ms;
+    }
+    > .rock {
+      background: $rock;
+      transition: 400ms;
+    }
+    > .bug {
+      background: $bug;
+      transition: 400ms;
+    }
+
+    > .psychic {
+      background: $psychic;
+      transition: 400ms;
+    }
+    > .flying {
+      background: $flying;
+      transition: 400ms;
+    }
+    > .ground {
+      background: $ground;
+      transition: 400ms;
+    }
+    > .poison {
+      background: $poison;
+      transition: 400ms;
+    }
+    > .fighting {
+      background: $fighting;
+      transition: 400ms;
+    }
+    > .ice {
+      background: $ice;
+      transition: 400ms;
+    }
+    > .grass {
+      background: $grass;
+      transition: 400ms;
+    }
+    > .dragon {
+      background: $dragon;
+      transition: 400ms;
+    }
+    > .water {
+      background: $water;
+      transition: 400ms;
+    }
+    > .electric {
+      background: $electric;
+      transition: 400ms;
+    }
+    > .fire {
+      background: $fire;
+      transition: 400ms;
+    }
+    > .normal {
+      background: $normal;
+      transition: 400ms;
+    }
+    > .fairy {
+      background: $fairy;
+      transition: 400ms;
+    }
+    > .steel:hover {
+      // background: $steel
+      @include buttons-hover($steel);
+    }
+    > .dark:hover {
+      // background: $dark;
+      @include buttons-hover($dark);
+    }
+    > .ghost:hover {
+      // background: $ghost;
+      @include buttons-hover($ghost);
+    }
+    > .rock:hover {
+      // background: $rock;
+      @include buttons-hover($rock);
+    }
+    > .bug:hover {
+      // background: $bug;
+      @include buttons-hover($bug);
+    }
+
+    > .psychic:hover {
+      // background: $psychic;
+      @include buttons-hover($psychic);
+    }
+    > .flying:hover {
+      // background: $flying;
+      @include buttons-hover($flying);
+    }
+    > .ground:hover {
+      // background: $ground;
+      @include buttons-hover($ground);
+    }
+    > .poison:hover {
+      // background: $poison;
+      @include buttons-hover($poison);
+    }
+    > .fighting:hover {
+      // background: $fighting;
+      @include buttons-hover($fighting);
+    }
+    > .ice:hover {
+      // background: $ice;
+      @include buttons-hover($ice);
+    }
+    > .grass:hover {
+      // background: $grass;
+      @include buttons-hover($grass);
+    }
+    > .dragon:hover {
+      // background: $dragon;
+      @include buttons-hover($dragon);
+    }
+    > .water:hover {
+      // background: $water;
+      @include buttons-hover($water);
+    }
+    > .electric:hover {
+      // background: $electric;
+      @include buttons-hover($electric);
+    }
+    > .fire:hover {
+      // background: $fire;
+      @include buttons-hover($fire);
+    }
+    > .normal:hover {
+      // background: $normal;
+      @include buttons-hover($normal);
+    }
+    > .fairy:hover {
+      // background: $fairy;
+      @include buttons-hover($fairy);
+    }
+  }
+}

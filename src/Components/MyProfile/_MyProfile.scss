@@ -1,0 +1,182 @@
+$font: "Fredoka One";
+$red: #a4031f;
+$purple: #240b36;
+$yellow: #f2dc5d;
+$gray: #565554;
+$blue: #003d5b;
+
+@mixin inputs($height, $width, $font-size) {
+  height: $height;
+  width: $width;
+  font-size: $font-size;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 25px;
+  border: rgba(0, 0, 0, 0.178) solid 1px;
+  transition: 500ms;
+}
+@mixin input-focus($shadow-color) {
+  box-shadow: 0px 0px 10px $shadow-color;
+  transition: 500ms;
+}
+.profile-pic-input {
+  transition: 500ms;
+  @include inputs(50px, 200px, 20px);
+}
+.profile-pic-input:focus {
+  @include input-focus($purple);
+}
+.search-input {
+  @include inputs(50px, 200px, 20px);
+}
+.search-input:focus {
+  @include input-focus($purple);
+}
+@mixin buttons($width, $background-color) {
+  color: white;
+  background: $background-color;
+  border: none;
+  height: 45px;
+  border-radius: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-family: sans-serif;
+  font-size: 20px;
+  transition: 500ms;
+  margin: 15px;
+  border: rgba(0, 0, 0, 0.178) solid 1px;
+}
+
+@mixin buttons-hover($shadow-color) {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px $shadow-color;
+  transition: 500ms;
+}
+
+.new-pic-button {
+  @include buttons(100px, $gray);
+  margin: 20px;
+}
+.new-pic-button:hover {
+  @include buttons-hover($gray);
+}
+
+.confirm-pic,
+.catch-button {
+  @include buttons(100px, blue);
+}
+.confirm-pic:hover,
+.catch-button:hover {
+  @include buttons-hover(blue);
+}
+.cancel-pic {
+  @include buttons(100px, $red);
+}
+.cancel-pic:hover {
+  @include buttons-hover($red);
+}
+.find-button {
+  @include buttons(100px, $purple);
+  margin-bottom: 0px;
+}
+.find-button:hover {
+  @include buttons-hover($purple);
+}
+
+.MyProfile {
+  font-family: $font;
+  font-weight: 300;
+  color: rgba(22, 22, 22, 0.979);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  // max-width: calc(100vw - 40px);
+  background: $yellow;
+  min-height: calc(100% - 100px);
+  padding-bottom: 90px;
+  > .profile-pic {
+    border-radius: 50%;
+    border: black solid 3px;
+    max-width: 100vw;
+  }
+}
+.pokemon-list {
+  width: 210px;
+  height: 250px;
+  overflow: auto;
+  overflow-x: hidden;
+  background: #00798c;
+  > .add-pokemon {
+    text-align: center;
+    // background: green;
+    > .pokemon-name {
+      color: white;
+      font-size: 1.9rem;
+      transition: 200ms;
+    }
+    > .pokemon-name:hover {
+      cursor: pointer;
+      box-shadow: 0px 0px 10px blue;
+      transition: 200ms;
+    }
+    > .name-border {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: blue;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      transition: 200ms;
+    }
+  }
+}
+.selection-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  @keyframes mymove {
+    0% {
+      top: -100px;
+      z-index: -1;
+      display: hidden !important;
+    }
+    100% {
+      top: 0px;
+      display: inline-block;
+    }
+  }
+  animation: mymove 0.6s;
+  > .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > .nickname {
+      @include inputs(50px, 200px, 20px);
+    }
+    > .nickname:focus {
+      @include input-focus($purple);
+    }
+
+    > .shiny-box-container > .shiny-box {
+      margin-left: 10px;
+      margin-top: 3px;
+    }
+  }
+}
+.list-and-image {
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
+  align-items: center;
+}
+.pokemon-map {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // padding-left: 10px;
+  // padding-right: 10px;
+}
